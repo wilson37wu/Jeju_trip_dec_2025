@@ -358,7 +358,7 @@
                     { time: "11:30", title: "神秘之路", kr: "신비의도로", type: "sight", desc: "視覺錯覺。", icon: "🎢", mapcode: "153 103 122", links: { google: "https://www.google.com/maps/search/?api=1&query=Mysterious+Road+Jeju", naver: "https://map.naver.com/p/search/%EC%8B%A0%EB%B9%84%EC%9D%98%EB%8F%84%EB%A1%9C" } },
                     { time: "13:00", title: "東門市場", kr: "동문재래시장", type: "food", desc: "最後採買 & 午餐。", icon: "🍊", mapcode: "150 286 622", parking_query: "동문재래시장 공영주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Dongmun+Market", naver: "https://map.naver.com/p/search/%EB%8F%99%EB%AC%B8%EC%9E%AC%EB%9E%98%EC%8B%9C%EC%9E%A5" } },
                     { time: "16:10", title: "還車: Lotte", kr: "롯데렌터카", type: "transport", desc: "加油，還車。", icon: "⛽", mapcode: "150 022 350", links: { google: "https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-Car+Jeju+Auto+House", naver: "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" } },
-                    { time: "17:00", title: "機場報到", type: "transport", desc: "UO663 (19:30)。", icon: "🛫" }
+                    { time: "17:00", title: "濟州機場報到 (UO663)", type: "transport", desc: "辦理登機。起飛 19:30。回溫暖的家。", icon: "🛫" }
                 ]
             }
         ];
@@ -493,6 +493,11 @@
 
             html += `</div>`;
             return html;
+        }
+        
+        function renderTimeline(dayNum) {
+            const dayData = itineraryData.find(d => d.day === dayNum);
+            document.getElementById('timeline-container').innerHTML = generateDayHTML(dayData);
         }
 
         function renderAllDays() {

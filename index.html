@@ -278,11 +278,11 @@
                 day: 2,
                 date: "12/22 (一)",
                 location: "東部探索",
-                theme: "森林與糖果",
-                missed: ["萬丈窟"],
+                theme: "Maze Runner & Candy World",
+                missed: ["萬丈窟 (整修)", "榧子林 (Skipped for Maze)"],
                 steps: [
                     { time: "09:00", title: "出發", type: "transport", desc: "退房，前往東部 (50min)。", icon: "🚙" },
-                    { time: "10:00", title: "榧子林 (Bijarim)", kr: "비자림", type: "sight", desc: "紅土步道，適合推車。", icon: "🌲", address: "55 Bijasup-gil", mapcode: "155 852 648", phone: "064-710-7912", parking_query: "비자림 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Bijarim+Forest", naver: "https://map.naver.com/p/search/%EB%B9%84%EC%9E%90%EB%A6%BC" } },
+                    { time: "10:00", title: "Maze Land", kr: "메이즈랜드", type: "sight", desc: "世界最長石迷宮！Running Man 拍攝地，適合小孩跑跳放電。", icon: "🌀", address: "2134-47 Bijarim-ro, Gujwa-eup", mapcode: "926 453 522", phone: "064-784-3838", parking_query: "메이즈랜드 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Maze+Land+Jeju", naver: "https://map.naver.com/p/search/%EB%A9%94%EC%9D%B4%EC%A6%88%EB%9E%9C%EB%93%9C" } },
                     { time: "12:30", title: "午餐: 月汀里海邊", kr: "월정리해변", type: "food", desc: "海景午餐。", icon: "🍱", mapcode: "422 284 353", suggestions: [
                         { name: "Myeongjin Abalone", kr: "명진전복", desc: "鮑魚飯", mapcode: "926 422 150", naver: "https://map.naver.com/p/search/명진전복", google: "https://www.google.com/maps/search/?api=1&query=Myeongjin+Jeonbok" },
                         { name: "Woljeongri Galbibap", kr: "월정리갈비밥", desc: "排骨飯", naver: "https://map.naver.com/p/search/월정리갈비밥", google: "https://www.google.com/maps/search/?api=1&query=Woljeongri+Galbibap" },
@@ -331,7 +331,11 @@
                     ]},
                     { time: "14:00", title: "正房瀑布", kr: "정방폭포", type: "sight", desc: "瀑布入海。", icon: "🌊", mapcode: "422 060 200", context: "⚠️ 樓梯多", parking_query: "정방폭포 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Jeongbang+Waterfall", naver: "https://map.naver.com/p/search/%EC%A0%95%EB%B0%A9%ED%8F%AD%ED%8F%AC" } },
                     { time: "16:00", title: "入住: Velum Resort", kr: "벨룸리조트", type: "hotel", desc: "西歸浦度假別墅。", icon: "🏨", address: "156 Topyeonggongdan-ro", phone: "064-732-5800", links: { google: "https://www.google.com/maps/search/?api=1&query=Velum+Resort+Jeju", naver: "https://map.naver.com/p/search/%EB%B2%A8%EB%A3%B8%EB%A6%AC%EC%A1%B0%ED%8A%B8" } },
-                    { time: "18:00", title: "聖誕晚餐: 雙胞胎生魚片", kr: "쌍둥이횟집", type: "food", desc: "點「特選套餐」，小孩有炸豬排。", icon: "🍱", mapcode: "422 060 722", phone: "064-762-0478", booking_required: true, booking_method: "請飯店預約 (Call 064-762-0478)", links: { google: "https://www.google.com/maps/search/?api=1&query=Ssangdung-i+Sashimi", naver: "https://map.naver.com/p/search/쌍둥이횟집" } },
+                    { time: "18:00", title: "聖誕晚餐: 雙胞胎生魚片", kr: "쌍둥이횟집", type: "food", desc: "點「特選套餐」，小孩有炸豬排。", icon: "🍱", mapcode: "422 060 722", phone: "064-762-0478", booking_required: true, booking_method: "請飯店預約 (Call 064-762-0478)", links: { google: "https://www.google.com/maps/search/?api=1&query=Ssangdung-i+Sashimi", naver: "https://map.naver.com/p/search/쌍둥이횟집" },
+                        suggestions: [
+                            { name: "4人特選套餐", kr: "4인 스페셜", desc: "約 150,000 韓元，份量超足" }
+                        ]
+                    },
                     { time: "20:00", title: "回飯店拆禮物", type: "rest", desc: "買蛋糕回 Resort 慶祝。", icon: "🎄" }
                 ]
             },

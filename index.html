@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+    <title>濟州島親子冬日探索之旅 2025</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Zootopia Inspired -->
+    <!-- Primary (Judy): #3B82F6 (Blue-500) -->
+    <!-- Secondary (Nick): #F97316 (Orange-500) -->
+    
+    <style>
+        body { 
+            font-family: 'Noto Sans TC', 'Roboto', sans-serif; 
+            background-color: #F8FAFC; 
+            color: #334155; 
+            padding-bottom: 80px; /* Space for bottom nav */
+            -webkit-tap-highlight-color: transparent;
+        }
+        .smooth-scroll { scroll-behavior: smooth; }
+        
+        /* Mobile Sticky Tabs */
+        .sticky-tabs {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: -1rem; /* Negate container padding */
+            margin-right: -1rem;
+            padding-left: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-line { position: absolute; left: 1.25rem; top: 2.5rem; bottom: 0; width: 2px; background-color: #E2E8F0; z-index: 0; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .select-all { user-select: all; }
+
+        /* Map Button Styles */
+        .btn-map-naver { background-color: #03C75A; color: white; }
+        .btn-map-google { background-color: #4285F4; color: white; }
+
+        /* Mobile Bottom Nav */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            padding-bottom: max(10px, env(safe-area-inset-bottom));
+            z-index: 50;
+            box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+            color: #64748b;
+            width: 25%;
+        }
+        .nav-item.active { color: #3b82f6; font-weight: bold; }
+        .nav-icon { font-size: 20px; margin-bottom: 2px; }
+
+        /* Print Optimization */
+        @media print {
+            body { padding-bottom: 0; }
+            .bottom-nav, .sticky-tabs, .no-print { display: none !important; }
+            .timeline-line { left: 0.65rem !important; }
+            /* ... previous print styles ... */
+            @page { margin: 1.0cm; size: A4; }
+            #timeline-container { box-shadow: none; border: none; padding: 0; }
+            .card-hover { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; padding: 5px !important; margin-bottom: 5px !important; }
+            a { text-decoration: none; color: black; }
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+
+    <!-- Top Header (Mobile Simplified) -->
+    <div class="bg-white/90 backdrop-blur-sm p-4 text-center border-b border-gray-100 no-print">
+        <div class="flex justify-center items-center gap-2" onclick="window.scrollTo(0,0)">
+            <span class="text-2xl">🐰🦊</span>
+            <span class="font-bold text-lg text-gray-800 tracking-tight">濟州冒險記</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 pt-6 space-y-10">
+
+        <!-- SECTION: Overview -->
+        <section id="overview" class="animate-fade-in scroll-mt-20">
+            <div class="bg-gradient-to-r from-blue-50 to-orange-50 rounded-2xl p-6 text-center border border-white shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 opacity-10 text-8xl transform translate-x-4 -translate-y-4">🌴</div>
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Welcome to Jeju!</h1>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                    5天6夜 • 親子自駕 • 5大3小
+                </p>
+                <div class="flex flex-wrap justify-center gap-2 text-xs">
+                    <span class="px-3 py-1 bg-white rounded-full shadow-sm text-blue-600 font-bold">📅 12/21-26</span>
+                    <span class="px-3 py-1 bg-white rounded-full shadow-sm text-orange-600 font-bold">🚗 8人座</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Logistics -->
+        <section id="logistics" class="scroll-mt-20">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="w-1 h-6 bg-blue-500 rounded-full block"></span> 交通住宿
+            </h2>
+
+            <div class="space-y-4">
+                <!-- Flight Card -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-800 mb-3 text-sm flex items-center gap-2">✈️ 航班 (HK Express)</h3>
+                    <div class="flex justify-between items-center text-sm border-b border-gray-100 pb-3 mb-3">
+                        <div>
+                            <div class="text-xs text-gray-400">12/21 去程</div>
+                            <div class="font-bold text-blue-600 text-lg">15:20</div>
+                            <div class="text-xs text-gray-500">HKG T1</div>
+                        </div>
+                        <div class="text-gray-300">➔</div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-400">UO662</div>
+                            <div class="font-bold text-blue-600 text-lg">19:10</div>
+                            <div class="text-xs text-gray-500">CJU</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <div>
+                            <div class="text-xs text-gray-400">12/26 回程</div>
+                            <div class="font-bold text-orange-600 text-lg">19:30</div>
+                            <div class="text-xs text-gray-500">CJU</div>
+                        </div>
+                        <div class="text-gray-300">➔</div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-400">UO663</div>
+                            <div class="font-bold text-orange-600 text-lg">22:15</div>
+                            <div class="text-xs text-gray-500">HKG</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rental Car Card -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-800 mb-3 text-sm flex items-center gap-2">🚗 租車 (Lotte/Jeju Auto)</h3>
+                    <div class="bg-gray-50 p-3 rounded-lg text-sm mb-3">
+                        <div class="font-bold text-gray-700">Jeju Auto House</div>
+                        <div class="text-xs text-gray-500 mt-1">📍 1, Oha-gil, Jeju-si</div>
+                        <div class="mt-3 grid grid-cols-2 gap-2">
+                            <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" class="btn-map-naver text-center py-2 rounded text-xs font-bold">Naver Map</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-Car+Jeju+Auto+House" target="_blank" class="btn-map-google text-center py-2 rounded text-xs font-bold">Google Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Itinerary -->
+        <section id="itinerary" class="scroll-mt-20">
+            <div class="flex justify-between items-end mb-2">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                    <span class="w-1 h-6 bg-orange-500 rounded-full block"></span> 每日行程
+                </h2>
+                <button onclick="toggleViewAll()" id="view-all-btn" class="text-xs text-orange-500 font-bold border border-orange-200 px-3 py-1 rounded-full no-print">
+                    👁️ 展開全部
+                </button>
+            </div>
+
+            <!-- Sticky Day Tabs -->
+            <div class="sticky-tabs flex overflow-x-auto space-x-2 pb-2 hide-scrollbar no-print" id="day-tabs">
+                <!-- JS Generated -->
+            </div>
+
+            <!-- Timeline Content -->
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 min-h-[400px] mt-2" id="timeline-container">
+                <!-- JS Generated -->
+            </div>
+        </section>
+
+        <!-- SECTION: Food Map -->
+        <section id="food" class="scroll-mt-20 mb-20">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="w-1 h-6 bg-green-500 rounded-full block"></span> 美食指南
+            </h2>
+            
+            <div class="flex gap-2 mb-4 overflow-x-auto pb-2 no-print">
+                <button onclick="filterFood('all')" class="flex-shrink-0 px-4 py-2 rounded-full bg-gray-800 text-white text-xs font-bold">全部</button>
+                <button onclick="filterFood('seafood')" class="flex-shrink-0 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">🐟 海鮮</button>
+                <button onclick="filterFood('pork')" class="flex-shrink-0 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-xs font-bold">🐷 黑豬肉</button>
+                <button onclick="filterFood('cafe')" class="flex-shrink-0 px-4 py-2 rounded-full bg-green-100 text-green-700 text-xs font-bold">☕ 咖啡</button>
+            </div>
+
+            <!-- Food Grid -->
+            <div class="grid grid-cols-1 gap-4" id="food-grid">
+                <!-- JS Generated -->
+            </div>
+        </section>
+        
+        <!-- SECTION: Prep (Hidden on mobile home, accessible via nav) -->
+        <section id="prep" class="scroll-mt-20">
+             <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="w-1 h-6 bg-purple-500 rounded-full block"></span> 行前準備
+            </h2>
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <ul class="space-y-3 text-sm text-gray-600">
+                    <li class="flex items-center gap-3"><span class="text-lg">🧥</span> 保暖外套 (5-10°C)</li>
+                    <li class="flex items-center gap-3"><span class="text-lg">💊</span> 暈車藥 (山路多)</li>
+                    <li class="flex items-center gap-3"><span class="text-lg">🧴</span> 保濕乳液</li>
+                    <li class="flex items-center gap-3"><span class="text-lg">📱</span> 平板 & 影片 (機上用)</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav no-print">
+        <div class="nav-item active" onclick="switchNav('overview')">
+            <div class="nav-icon">🏠</div>
+            <div>首頁</div>
+        </div>
+        <div class="nav-item" onclick="switchNav('itinerary')">
+            <div class="nav-icon">📅</div>
+            <div>行程</div>
+        </div>
+        <div class="nav-item" onclick="switchNav('food')">
+            <div class="nav-icon">🍴</div>
+            <div>美食</div>
+        </div>
+        <div class="nav-item" onclick="switchNav('prep')">
+            <div class="nav-icon">🎒</div>
+            <div>準備</div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA STORE ---
+        const itineraryData = [
+            {
+                day: 1,
+                date: "12/21 (日)",
+                location: "香港 -> 濟州市",
+                theme: "出發與抵達",
+                missed: [],
+                steps: [
+                    { time: "12:50", title: "抵達香港機場 (HKG T1)", type: "transport", desc: "UO662 (15:20) 登機。", icon: "🧳", context: "提早 2.5hr" },
+                    { time: "14:15", title: "買外帶晚餐 (關鍵!)", type: "food", desc: "買飯糰/麵包帶上機。", icon: "🍙" },
+                    { time: "15:20", title: "起飛 UO662", type: "transport", desc: "飛往濟州 (3hr 20m)。", icon: "✈️" },
+                    { time: "19:10", title: "抵達濟州 (CJU)", kr: "제주국제공항", type: "transport", desc: "Gate 5 搭接駁車。", icon: "🛬", mapcode: "150 000 750", parking_query: "제주공항 주차장" },
+                    { time: "20:15", title: "取車: Lotte Rent-a-Car", kr: "롯데렌터카", type: "activity", desc: "檢查車況/裝汽座。", icon: "🚗", address: "1 Oha-gil, Jeju-si", mapcode: "150 022 350", phone: "064-751-8000", parking_query: "롯데렌터카 제주오토하우스", links: { google: "https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-Car+Jeju+Auto+House", naver: "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" } },
+                    { time: "21:00", title: "Check-in: Ventimo Hotel", kr: "벤티모 호텔", type: "hotel", desc: "市區入住。", icon: "🏨", address: "14 Yeonji-gil", phone: "064-712-2277", mapcode: "150 022 350", links: { google: "https://www.google.com/maps/search/?api=1&query=Ventimo+Hotel+Jeju", naver: "https://map.naver.com/p/search/%EB%B2%A4%ED%8B%B0%EB%AA%A8%ED%98%B8%ED%85%94" } },
+                    { time: "21:30", title: "宵夜: 黑豬肉一條街", kr: "흑돼지거리", type: "food", desc: "大人吃肉，小孩吃蒸蛋。", icon: "🥓", address: "Geonip-dong", parking_query: "흑돼지거리 주차장", suggestions: [
+                        { name: "Dombedon", kr: "돔베돈", desc: "米其林推薦", booking: true, booking_method: "請飯店訂位", mapcode: "350 083 615", naver: "https://map.naver.com/p/search/돔베돈", google: "https://www.google.com/maps/search/?api=1&query=Dombedon+Jeju" }
+                    ]}
+                ]
+            },
+            {
+                day: 2,
+                date: "12/22 (一)",
+                location: "東部探索",
+                theme: "森林與糖果",
+                missed: ["萬丈窟"],
+                steps: [
+                    { time: "09:00", title: "出發", type: "transport", desc: "退房，前往東部 (50min)。", icon: "🚙" },
+                    { time: "10:00", title: "榧子林 (Bijarim)", kr: "비자림", type: "sight", desc: "紅土步道，適合推車。", icon: "🌲", address: "55 Bijasup-gil", mapcode: "155 852 648", phone: "064-710-7912", parking_query: "비자림 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Bijarim+Forest", naver: "https://map.naver.com/p/search/%EB%B9%84%EC%9E%90%EB%A6%BC" } },
+                    { time: "12:30", title: "午餐: 月汀里海邊", kr: "월정리해변", type: "food", desc: "海景午餐。", icon: "🍱", mapcode: "422 284 353", suggestions: [
+                        { name: "Myeongjin Abalone", kr: "명진전복", desc: "鮑魚飯", mapcode: "926 422 150", naver: "https://map.naver.com/p/search/명진전복", google: "https://www.google.com/maps/search/?api=1&query=Myeongjin+Jeonbok" },
+                        { name: "Woljeongri Galbibap", kr: "월정리갈비밥", desc: "排骨飯", naver: "https://map.naver.com/p/search/월정리갈비밥", google: "https://www.google.com/maps/search/?api=1&query=Woljeongri+Galbibap" }
+                    ]},
+                    { time: "14:00", title: "Haribo 歡樂世界", kr: "하리보 해피월드", type: "activity", desc: "熊軟糖互動展。", icon: "🧸", parking_query: "하리보 해피월드 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Haribo+Happy+World+Jeju", naver: "https://map.naver.com/p/search/%ED%95%98%EB%A6%AC%EB%B3%B4%20%ED%95%B4%ED%94%BC%EC%9B%94%EB%93%9C" } },
+                    { time: "16:30", title: "入住: Haevichi Hotel", kr: "해비치 호텔", type: "hotel", desc: "表善海景度假村。", icon: "🏨", mapcode: "422 092 350", phone: "064-780-8000", links: { google: "https://www.google.com/maps/search/?api=1&query=Haevichi+Hotel+Jeju", naver: "https://map.naver.com/p/search/%ED%95%B4%EB%B9%84%EC%B9%98%ED%98%B8%ED%85%94" } },
+                    { time: "18:30", title: "晚餐 (表善)", type: "food", desc: "飯店附近用餐。", icon: "🍲", suggestions: [
+                        { name: "Moguri Sikdang", kr: "모구리식당", desc: "黑豬肉", naver: "https://map.naver.com/p/search/모구리식당", google: "https://www.google.com/maps/search/?api=1&query=Moguri+Sikdang" }
+                    ]}
+                ]
+            },
+            {
+                day: 3,
+                date: "12/23 (二)",
+                location: "牛島 & 城山",
+                theme: "跳島與海景",
+                missed: [],
+                steps: [
+                    { time: "09:00", title: "城山港 (車輛上船)", kr: "성산포항", type: "transport", desc: "🚗 8人團: 開車上船！", icon: "⛴️", mapcode: "422 660 788", parking_query: "성산포항 공영주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Seongsan+Pohang+General+Passenger+Terminal", naver: "https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%ED%8F%AC%ED%95%AD" } },
+                    { time: "10:00", title: "牛島環島", kr: "우도", type: "sight", desc: "西濱白沙、花生冰。", icon: "🥜" },
+                    { time: "12:00", title: "牛島午餐", type: "food", desc: "漢堡或炸醬麵。", icon: "🍔", suggestions: [
+                        { name: "CocoMama", kr: "코코마마", desc: "龍蝦炒飯", naver: "https://map.naver.com/p/search/코코마마 우도", google: "https://www.google.com/maps/search/?api=1&query=CocoMama+Udo" }
+                    ]},
+                    { time: "14:00", title: "城山日出峰", kr: "성산일출봉", type: "sight", desc: "草地看海。", icon: "⛰️", mapcode: "422 690 622", parking_query: "성산일출봉 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Seongsan+Ilchulbong", naver: "https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89" } },
+                    { time: "16:00", title: "下午茶", type: "break", desc: "Fritz Peppa 或 Starbucks。", icon: "☕" },
+                    { time: "18:00", title: "Haevichi 晚餐", type: "food", desc: "享受度假村。", icon: "🐟", suggestions: [
+                        { name: "Haevichi Milieu", kr: "밀리우", desc: "高級法餐", booking: true, booking_method: "飯店預約", naver: "https://map.naver.com/p/search/밀리우", google: "https://www.google.com/maps/search/?api=1&query=Haevichi+Milieu" }
+                    ]}
+                ]
+            },
+            {
+                day: 4,
+                date: "12/24 (三)",
+                location: "東南 -> 西歸浦",
+                theme: "平安夜",
+                missed: [],
+                steps: [
+                    { time: "10:00", title: "山君不離", kr: "산굼부리", type: "sight", desc: "絕美芒草。", icon: "🌾", mapcode: "422 038 522", parking_query: "산굼부리 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Sangumburi", naver: "https://map.naver.com/p/search/%EC%82%B0%EA%B5%BC%EB%B6%80%EB%A6%AC" } },
+                    { time: "12:00", title: "午餐 (西歸浦路途)", type: "food", desc: "韓式定食。", icon: "🍲", suggestions: [
+                        { name: "Nangtteul-e-shimte", kr: "낭뜰에쉼팡", desc: "定食", naver: "https://map.naver.com/p/search/낭뜰에쉼팡", google: "https://www.google.com/maps/search/?api=1&query=Nangtteul-e-shimte" }
+                    ]},
+                    { time: "14:00", title: "正房瀑布", kr: "정방폭포", type: "sight", desc: "瀑布入海。", icon: "🌊", mapcode: "422 060 200", context: "⚠️ 樓梯多", parking_query: "정방폭포 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Jeongbang+Waterfall", naver: "https://map.naver.com/p/search/%EC%A0%95%EB%B0%A9%ED%8F%AD%ED%8F%AC" } },
+                    { time: "16:00", title: "入住: Velum Resort", kr: "벨룸리조트", type: "hotel", desc: "西歸浦度假別墅。", icon: "🏨", address: "156 Topyeonggongdan-ro", phone: "064-732-5800", links: { google: "https://www.google.com/maps/search/?api=1&query=Velum+Resort+Jeju", naver: "https://map.naver.com/p/search/%EB%B2%A8%EB%A3%B8%EB%A6%AC%EC%A1%B0%ED%8A%B8" } },
+                    { time: "18:00", title: "聖誕晚餐: 雙胞胎生魚片", kr: "쌍둥이횟집", type: "food", desc: "點「特選套餐」，小孩有炸豬排。", icon: "🍱", mapcode: "422 060 722", phone: "064-762-0478", booking_required: true, booking_method: "請飯店預約 (Call 064-762-0478)", links: { google: "https://www.google.com/maps/search/?api=1&query=Ssangdung-i+Sashimi", naver: "https://map.naver.com/p/search/쌍둥이횟집" } },
+                    { time: "20:00", title: "回飯店拆禮物", type: "rest", desc: "買蛋糕回 Resort 慶祝。", icon: "🎄" }
+                ]
+            },
+            {
+                day: 5,
+                date: "12/25 (四)",
+                location: "中文區 & 漢拿山",
+                theme: "聖誕親子日",
+                missed: [],
+                steps: [
+                    { time: "09:30", title: "Pororo & Tayo 樂園", kr: "뽀로로앤타요 테마파크", type: "activity", desc: "小孩放電3小時。", icon: "🐧", mapcode: "151 446 720", parking_query: "뽀로로앤타요 테마파크 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Pororo+and+Tayo+Theme+Park+Jeju", naver: "https://map.naver.com/p/search/%EB%8B%A4%EC%9D%8C%EB%BD%80%EB%A1%9C%EB%A1%9C%ED%8C%8C%ED%81%AC" } },
+                    { time: "12:30", title: "午餐: 樂園附近", type: "food", desc: "Bongyou 炸豬排。", icon: "🍴", suggestions: [
+                         { name: "Bongyou", kr: "봉유", desc: "黑豬肉炸豬排", mapcode: "351 143 783", naver: "https://map.naver.com/p/search/봉유", google: "https://www.google.com/maps/search/?api=1&query=Bongyou+Jeju" }
+                    ]},
+                    { time: "14:30", title: "1100高地", kr: "1100고지", type: "sight", desc: "開車看漢拿山雪景。", icon: "❄️", mapcode: "152 255 122", parking_query: "1100고지 휴게소 주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=1100+Highland", naver: "https://map.naver.com/p/search/1100%EA%B3%A0%EC%A7%80" } },
+                    { time: "16:15", title: "O'sulloc 雪綠茶", kr: "오설록 티뮤지엄", type: "break", desc: "吃蛋糕，買伴手禮。", icon: "🍵", mapcode: "152 710 522", links: { google: "https://www.google.com/maps/search/?api=1&query=Osulloc+Tea+Museum", naver: "https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D" } },
+                    { time: "18:00", title: "晚餐 (西歸浦)", type: "food", desc: "熟成黑豬肉。", icon: "🍗", suggestions: [
+                        { name: "Sookseongdo", kr: "숙성도", desc: "超人氣", booking: true, booking_method: "Catch Table", mapcode: "374 135 152", naver: "https://map.naver.com/p/search/숙성도", google: "https://www.google.com/maps/search/?api=1&query=Sookseongdo+Jeju" }
+                    ]}
+                ]
+            },
+            {
+                day: 6,
+                date: "12/26 (五)",
+                location: "濟州市 -> 香港",
+                theme: "最後衝刺",
+                missed: [],
+                steps: [
+                    { time: "10:00", title: "往北走", type: "transport", desc: "經 1100 道路返回。", icon: "🚗" },
+                    { time: "11:30", title: "神秘之路", kr: "신비의도로", type: "sight", desc: "視覺錯覺。", icon: "🎢", mapcode: "153 103 122", links: { google: "https://www.google.com/maps/search/?api=1&query=Mysterious+Road+Jeju", naver: "https://map.naver.com/p/search/%EC%8B%A0%EB%B9%84%EC%9D%98%EB%8F%84%EB%A1%9C" } },
+                    { time: "13:00", title: "東門市場", kr: "동문재래시장", type: "food", desc: "最後採買 & 午餐。", icon: "🍊", mapcode: "150 286 622", parking_query: "동문재래시장 공영주차장", links: { google: "https://www.google.com/maps/search/?api=1&query=Dongmun+Market", naver: "https://map.naver.com/p/search/%EB%8F%99%EB%AC%B8%EC%9E%AC%EB%9E%98%EC%8B%9C%EC%9E%A5" } },
+                    { time: "16:10", title: "還車: Lotte", kr: "롯데렌터카", type: "transport", desc: "加油，還車。", icon: "⛽", mapcode: "150 022 350", links: { google: "https://www.google.com/maps/search/?api=1&query=Lotte+Rent-a-Car+Jeju+Auto+House", naver: "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" } },
+                    { time: "17:00", title: "機場報到", type: "transport", desc: "UO663 (19:30)。", icon: "🛫" }
+                ]
+            }
+        ];
+
+        const foodData = [
+            { name: "Sookseongdo", kr: "숙성도", type: "pork", desc: "超紅熟成黑豬肉 (Catch Table)", mapcode: "374 135 152", booking_method: "Catch Table", link: "https://www.instagram.com/explore/tags/%EC%88%99%EC%84%B1%EB%8F%84/", map: "https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84", google: "https://www.google.com/maps/search/?api=1&query=Sookseongdo+Jeju" },
+            { name: "Myeongjin Abalone", kr: "명진전복", type: "seafood", desc: "必吃鮑魚飯", mapcode: "926 422 150", link: "https://www.instagram.com/explore/tags/%EB%AA%85%EC%A7%84%EC%A0%84%EB%B3%B5/", map: "https://map.naver.com/p/search/%EB%AA%85%EC%A7%84%EC%A0%84%EB%B3%B5", google: "https://www.google.com/maps/search/?api=1&query=Myeongjin+Jeonbok" },
+            { name: "Ssangdung-i Sashimi", kr: "쌍둥이횟집", type: "seafood", desc: "生魚片套餐 (電話預約)", mapcode: "422 060 722", booking_method: "Phone", link: "https://www.instagram.com/explore/tags/%EC%8C%8D%EB%91%A5%EC%9D%B4%ED%9A%9F%EC%A7%91/", map: "https://map.naver.com/p/search/쌍둥이횟집", google: "https://www.google.com/maps/search/?api=1&query=Ssangdung-i+Sashimi" },
+            { name: "Cafe Knotted", kr: "노티드", type: "cafe", desc: "Aewol 甜甜圈", mapcode: "374 883 147", link: "https://www.instagram.com/explore/tags/%EB%85%B8%ED%8B%B0%EB%93%9C%EC%A0%9C%EC%A3%BC/", map: "https://map.naver.com/p/search/%EB%85%B8%ED%8B%B0%EB%93%9C%EC%A0%9C%EC%A3%BC", google: "https://www.google.com/maps/search/?api=1&query=Cafe+Knotted+Jeju" }
+        ];
+
+        // --- APP STATE ---
+        let currentDay = 1;
+        let isViewAll = false;
+
+        function init() {
+            renderTabs();
+            renderTimeline(1);
+            renderFood('all');
+            setupScrollListener();
+        }
+
+        function switchNav(id) {
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // Adjust scroll for sticky header
+            const el = document.getElementById(id);
+            const y = el.getBoundingClientRect().top + window.pageYOffset - 60;
+            window.scrollTo({top: y, behavior: 'smooth'});
+        }
+
+        function renderTabs() {
+            const container = document.getElementById('day-tabs');
+            container.innerHTML = itineraryData.map(day => `
+                <button onclick="switchDay(${day.day})" 
+                    class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition whitespace-nowrap ${currentDay === day.day && !isViewAll ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-100 text-gray-500'}">
+                    Day ${day.day}
+                </button>
+            `).join('');
+        }
+
+        function switchDay(day) {
+            isViewAll = false;
+            currentDay = day;
+            updateViewAllButton();
+            renderTabs();
+            renderTimeline(day);
+        }
+
+        function toggleViewAll() {
+            isViewAll = !isViewAll;
+            updateViewAllButton();
+            if (isViewAll) renderAllDays();
+            else renderTimeline(currentDay);
+        }
+
+        function updateViewAllButton() {
+            const btn = document.getElementById('view-all-btn');
+            btn.innerHTML = isViewAll ? "📅 切換單日" : "👁️ 展開全部";
+        }
+
+        function generateDayHTML(dayData) {
+            let html = `
+                <div class="mb-4 animate-fade-in">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center justify-between">
+                        <span>${dayData.date}</span>
+                        <span class="text-xs font-normal bg-blue-50 text-blue-600 px-2 py-1 rounded">${dayData.location}</span>
+                    </h3>
+                    <p class="text-orange-500 text-sm font-medium mt-1">✨ ${dayData.theme}</p>
+                </div>
+                <div class="relative space-y-6 pl-4">
+                    <div class="timeline-line"></div>
+            `;
+
+            html += dayData.steps.map((step, index) => {
+                const isJudy = index % 2 === 0; 
+                const borderColor = isJudy ? 'border-l-blue-500' : 'border-l-orange-500';
+                
+                return `
+                <div class="relative flex items-start gap-3 z-10 animate-slide-up" style="animation-delay: ${index * 50}ms">
+                    <div class="flex-shrink-0 w-8 h-8 bg-white rounded-full flex items-center justify-center text-sm shadow-sm border border-gray-200">
+                        ${step.icon}
+                    </div>
+                    <div class="flex-grow bg-white p-3 rounded-xl shadow-sm border border-gray-100 ${borderColor} border-l-4 card-hover">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-gray-800 text-base">
+                                ${step.title}
+                                ${step.booking_required ? `<span class="bg-red-100 text-red-600 px-1.5 py-0.5 rounded text-[10px] ml-1">需預約</span>` : ''}
+                            </span>
+                            <span class="text-xs font-mono text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">${step.time}</span>
+                        </div>
+                        
+                        ${step.booking_required && step.booking_method ? `<div class="text-xs text-red-500 font-bold mb-1">📞 ${step.booking_method}</div>` : ''}
+
+                        <p class="text-gray-600 text-xs mb-2 leading-relaxed">${step.desc}</p>
+                        
+                        ${(step.address || step.mapcode) ? `
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100 mt-2">
+                                <div class="flex gap-2 mb-2">
+                                    ${step.links?.naver ? `<a href="${step.links.naver}" target="_blank" class="flex-1 btn-map-naver text-center py-1.5 rounded text-xs font-bold shadow-sm">Naver</a>` : ''}
+                                    ${step.links?.google ? `<a href="${step.links.google}" target="_blank" class="flex-1 btn-map-google text-center py-1.5 rounded text-xs font-bold shadow-sm">Google</a>` : ''}
+                                </div>
+                                ${step.mapcode ? `<div class="text-xs text-center border border-gray-300 rounded py-1 font-mono bg-white select-all text-gray-700">MC: ${step.mapcode}</div>` : ''}
+                                ${step.phone ? `<div class="text-[10px] text-center text-gray-400 mt-1 select-all">GPS: ${step.phone}</div>` : ''}
+                            </div>
+                        ` : ''}
+
+                        ${step.suggestions ? `
+                            <div class="mt-3 pt-2 border-t border-gray-100">
+                                <span class="text-xs font-bold text-orange-500 block mb-1">🍴 推薦餐廳:</span>
+                                <ul class="text-xs text-gray-600 space-y-2">
+                                    ${step.suggestions.map(s => `
+                                        <li class="bg-gray-50 p-2 rounded flex justify-between items-center">
+                                            <div>
+                                                <div class="font-bold text-gray-700">${s.name} ${s.booking ? '<span class="text-red-500">*</span>' : ''}</div>
+                                                <div class="text-[10px] text-gray-400">${s.desc}</div>
+                                            </div>
+                                            <div class="flex gap-1">
+                                                ${s.naver ? `<a href="${s.naver}" target="_blank" class="text-[10px] px-2 py-1 bg-green-100 text-green-700 rounded font-bold">N</a>` : ''}
+                                                ${s.google ? `<a href="${s.google}" target="_blank" class="text-[10px] px-2 py-1 bg-blue-100 text-blue-700 rounded font-bold">G</a>` : ''}
+                                            </div>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            html += `</div>`;
+            return html;
+        }
+
+        function renderAllDays() {
+            const container = document.getElementById('timeline-container');
+            const html = itineraryData.map((day, index) => `
+                <div class="${index > 0 ? 'mt-8 pt-8 border-t-2 border-dashed border-gray-200 page-break' : ''}">
+                    <div class="text-center mb-4"><span class="bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-bold">Day ${day.day}</span></div>
+                    ${generateDayHTML(day)}
+                </div>
+            `).join('');
+            container.innerHTML = html;
+        }
+
+        function renderFood(filter) {
+            const container = document.getElementById('food-grid');
+            const filtered = filter === 'all' ? foodData : foodData.filter(f => f.type === filter);
+            
+            container.innerHTML = filtered.map(f => `
+                <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex justify-between items-center">
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2">
+                            <h4 class="font-bold text-gray-800">${f.name}</h4>
+                            ${f.booking_method ? '<span class="text-[10px] bg-orange-100 text-orange-600 px-1 rounded">預約</span>' : ''}
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">${f.desc}</p>
+                        ${f.mapcode ? `<div class="text-[10px] font-mono text-gray-400 mt-1 select-all">${f.mapcode}</div>` : ''}
+                    </div>
+                    <div class="flex flex-col gap-2 ml-3">
+                         <a href="${f.map}" target="_blank" class="btn-map-naver px-3 py-1.5 rounded text-xs font-bold shadow-sm">Naver</a>
+                         <a href="${f.google}" target="_blank" class="btn-map-google px-3 py-1.5 rounded text-xs font-bold shadow-sm">Google</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterFood(type) {
+            renderFood(type);
+        }
+
+        function setupScrollListener() {
+            // Optional: Highlight bottom nav on scroll
+            window.addEventListener('scroll', () => {
+                // Logic to update active nav based on scroll position
+            });
+        }
+
+        // Run Init
+        window.addEventListener('load', init);
+
+    </script>
+</body>
+</html>

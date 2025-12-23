@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
-    <title>濟州島親子冬日探索之旅 2025</title>
+    <title>濟州島親子冬日探索之旅 2025 (5大3小)</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,6 +16,7 @@
     <!-- Chosen Palette: Zootopia Inspired -->
     <!-- Primary (Judy): #3B82F6 (Blue-500) -->
     <!-- Secondary (Nick): #F97316 (Orange-500) -->
+    <!-- Background: #F3F4F6 (Gray-100) - Light & Clean -->
     
     <style>
         body { 
@@ -112,7 +113,7 @@
     <div class="bg-white/90 backdrop-blur-sm p-4 text-center border-b border-gray-100 no-print">
         <div class="flex justify-center items-center gap-2" onclick="window.scrollTo(0,0)">
             <span class="text-2xl">🐰🦊</span>
-            <span class="font-bold text-lg text-gray-800 tracking-tight">濟州冒險記</span>
+            <span class="font-bold text-lg text-gray-800 tracking-tight">濟州冒險記 (5大3小)</span>
         </div>
     </div>
 
@@ -123,7 +124,7 @@
         <section id="overview" class="animate-fade-in scroll-mt-20">
             <div class="bg-gradient-to-r from-blue-50 to-orange-50 rounded-2xl p-6 text-center border border-white shadow-sm relative overflow-hidden">
                 <div class="absolute top-0 right-0 opacity-10 text-8xl transform translate-x-4 -translate-y-4">🌴</div>
-                <h1 class="text-2xl font-bold text-gray-800 mb-2">Welcome to Jeju!</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Welcome to Jeju!</h1>
                 <p class="text-gray-600 text-sm mb-4 leading-relaxed">
                     親愛的探險家家庭，這是為您和三位小小隊員（5歲, 5歲, 3歲）特別定制的任務地圖。<br>
                     六天五夜，沒有枯燥的博物館，只有大自然的奇蹟、美味的黑豬肉和充滿歡笑的冒險。
@@ -392,9 +393,11 @@
                 weather: { icon: "☀️", temp: "6°C - 11°C", desc: "晴朗舒適" },
                 missed: [],
                 steps: [
+                    { time: "08:30", title: "起床 & 早餐", type: "food", desc: "享用飯店早餐。", icon: "🍳" },
+                    { time: "10:15", title: "Check-out & 出發", type: "transport", desc: "整理行李，前往山君不離 (車程30分)。", icon: "🚙" },
                     { 
-                        time: "10:00", title: "山君不離", kr: "산굼부리", type: "sight", 
-                        desc: "絕美芒草。", icon: "🌾", 
+                        time: "11:00", title: "山君不離", kr: "산굼부리", type: "sight", 
+                        desc: "絕美芒草，步道平緩適合推車。", icon: "🌾", 
                         mapcode: "422 038 522", parking_query: "산굼부리 주차장", 
                         info: {
                             hours: "09:00 - 17:40 (最後入場 17:00)",
@@ -404,14 +407,30 @@
                         links: { google: "https://www.google.com/maps/search/?api=1&query=Sangumburi", naver: "https://map.naver.com/p/search/%EC%82%B0%EA%B5%BC%EB%B6%80%EB%A6%AC" }, 
                         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Sangumburi_Crater.jpg/640px-Sangumburi_Crater.jpg" 
                     },
-                    { time: "12:00", title: "午餐 (西歸浦路途)", type: "food", desc: "韓式定食。", icon: "🍲", suggestions: [
-                        { name: "Nangtteul-e-shimte", kr: "낭뜰에쉼팡", desc: "定食", naver: "https://map.naver.com/p/search/낭뜰에쉼팡", google: "https://www.google.com/maps/search/?api=1&query=Nangtteul-e-shimte" },
-                        { name: "Seonheul Got", kr: "선흘곶", desc: "健康韓定食 (大桌)", naver: "https://map.naver.com/p/search/선흘곶", google: "https://www.google.com/maps/search/?api=1&query=Seonheul+Got" }
-                    ]},
                     { 
-                        time: "14:00", title: "正房瀑布", kr: "정방폭포", type: "sight", 
-                        desc: "瀑布入海。", icon: "🌊", 
-                        mapcode: "422 060 200", context: "⚠️ 樓梯多", parking_query: "정방폭포 주차장", 
+                        time: "13:00", title: "午餐 (西式/非油炸)", type: "food", 
+                        desc: "前往西歸浦途中用餐，選擇西式料理。", icon: "🍝", 
+                        suggestions: [
+                            { name: "South Forest", kr: "남쪽숲", desc: "森林系餐廳 (義大利麵/披薩/牛排)", mapcode: "064-739-1779 (Tel)", address: "1779-1 Sanghyo-dong", naver: "https://map.naver.com/p/search/남쪽숲", google: "https://www.google.com/maps/search/?api=1&query=South+Forest+Jeju" },
+                            { name: "Mayb", kr: "메이비", desc: "花園咖啡廳 (Pizza/Pasta/Brunch)", naver: "https://map.naver.com/p/search/메이비", google: "https://www.google.com/maps/search/?api=1&query=Mayb+Jeju" }
+                        ]
+                    },
+                    {
+                        time: "14:30", title: "採橘子 (Geumdongine)", kr: "금동이네 귤체험", type: "activity",
+                        desc: "橘子園採果體驗，位於度假村附近。", icon: "🍊",
+                        address: "655-2 Topyeong-dong, Seogwipo-si",
+                        mapcode: "156 612 000", /* Approx */
+                        parking_query: "금동이네 귤체험",
+                        info: {
+                            hours: "09:00 - 17:00",
+                            price: "約 5,000₩ - 10,000₩ (含帶走)"
+                        },
+                        links: { google: "https://www.google.com/maps/search/?api=1&query=Geumdongine+Tangerine+Experience", naver: "https://map.naver.com/p/search/%EA%B8%88%EB%8F%99%EC%9D%B4%EB%84%A4%EA%B7%A4%EC%B2%B4%ED%97%98" }
+                    },
+                    { 
+                        time: "16:00", title: "正房瀑布", kr: "정방폭포", type: "sight", 
+                        desc: "瀑布入海，日落前景色佳。", icon: "🌊", 
+                        mapcode: "422 060 200", context: "⚠️ 樓梯多，需小心幼兒。", parking_query: "정방폭포 주차장", 
                         info: {
                             hours: "09:00 - 17:20",
                             price: "成人 2,000₩ / 兒童 1,000₩"
@@ -419,13 +438,13 @@
                         links: { google: "https://www.google.com/maps/search/?api=1&query=Jeongbang+Waterfall", naver: "https://map.naver.com/p/search/%EC%A0%95%EB%B0%A9%ED%8F%AD%ED%8F%AC" }, 
                         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Jeongbang_Waterfall.jpg/640px-Jeongbang_Waterfall.jpg" 
                     },
-                    { time: "16:00", title: "入住: Velum Resort", kr: "벨룸리조트", type: "hotel", desc: "西歸浦度假別墅。", icon: "🏨", address: "156 Topyeonggongdan-ro", phone: "064-732-5800", links: { google: "https://www.google.com/maps/search/?api=1&query=Velum+Resort+Jeju", naver: "https://map.naver.com/p/search/%EB%B2%A8%EB%A3%B8%EB%A6%AC%EC%A1%B0%ED%8A%B8" } },
-                    { time: "18:00", title: "聖誕晚餐: 雙胞胎生魚片", kr: "쌍둥이횟집", type: "food", desc: "點「特選套餐」，小孩有炸豬排。", icon: "🍱", mapcode: "422 060 722", phone: "064-762-0478", booking_required: true, booking_method: "請飯店預約 (Call 064-762-0478)", links: { google: "https://www.google.com/maps/search/?api=1&query=Ssangdung-i+Sashimi", naver: "https://map.naver.com/p/search/쌍둥이횟집" },
+                    { time: "17:30", title: "入住: Velum Resort", kr: "벨룸리조트", type: "hotel", desc: "西歸浦度假別墅。", icon: "🏨", address: "156 Topyeonggongdan-ro", phone: "064-732-5800", links: { google: "https://www.google.com/maps/search/?api=1&query=Velum+Resort+Jeju", naver: "https://map.naver.com/p/search/%EB%B2%A8%EB%A3%B8%EB%A6%AC%EC%A1%B0%ED%8A%B8" } },
+                    { time: "18:30", title: "聖誕晚餐: 雙胞胎生魚片", kr: "쌍둥이횟집", type: "food", desc: "點「特選套餐」，小孩有炸豬排。", icon: "🍱", mapcode: "422 060 722", phone: "064-762-0478", booking_required: true, booking_method: "請飯店預約 (Call 064-762-0478)", links: { google: "https://www.google.com/maps/search/?api=1&query=Ssangdung-i+Sashimi", naver: "https://map.naver.com/p/search/쌍둥이횟집" },
                         suggestions: [
                             { name: "4人特選套餐", kr: "4인 스페셜", desc: "約 150,000 韓元，份量超足" }
                         ]
                     },
-                    { time: "20:00", title: "回飯店拆禮物", type: "rest", desc: "買蛋糕回 Resort 慶祝。", icon: "🎄" }
+                    { time: "20:30", title: "回飯店拆禮物", type: "rest", desc: "買蛋糕回 Resort 慶祝。", icon: "🎄" }
                 ]
             },
             {
@@ -450,7 +469,7 @@
                     },
                     { time: "12:30", title: "午餐: 樂園附近", type: "food", desc: "Bongyou 炸豬排。", icon: "🍴", suggestions: [
                          { name: "Bongyou", kr: "봉유", desc: "黑豬肉炸豬排", mapcode: "351 143 783", naver: "https://map.naver.com/p/search/봉유", google: "https://www.google.com/maps/search/?api=1&query=Bongyou+Jeju" },
-                         { name: "Chunshim's House", kr: "춘심이네", desc: "整條烤白帶魚 (去骨服務)", naver: "https://map.naver.com/p/search/춘심이네 본점", google: "https://www.google.com/maps/search/?api=1&query=Chunshim's+House+Main" }
+                         { name: "Chunshim's House", kr: "춘심이네", desc: "整條烤白帶魚 (去骨服務/不辣)", naver: "https://map.naver.com/p/search/춘심이네 본점", google: "https://www.google.com/maps/search/?api=1&query=Chunshim's+House+Main" }
                     ]},
                     { 
                         time: "14:30", title: "1100高地", kr: "1100고지", type: "sight", 
